@@ -2,6 +2,7 @@ const projectCards = document.querySelectorAll(".project-card");
 
 projectCards.forEach((card) => {
   card.addEventListener("mouseover", () => {
+    console.log(card);
     projectCards.forEach((otherCard) => {
       if (otherCard !== card) {
         otherCard.style.transform = "scale(0.9)";

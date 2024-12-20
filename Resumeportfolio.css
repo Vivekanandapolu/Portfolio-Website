@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   min-width: 250px;
+  background-color: white;
 }
 
 header {
@@ -11,6 +12,16 @@ header {
   padding: 20px 0;
   background-color: #333;
   color: #fff;
+  position: sticky;
+  top: -16rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  animation: navbarAnimate linear forwards;
+  animation-timeline: view();
+  animation-range-start: 150vh;
+  animation-range-end: 180vh;
 }
 
 header h1 {
@@ -18,6 +29,7 @@ header h1 {
 }
 
 .logo {
+  display: var(--headeImg, block);
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -28,7 +40,7 @@ header h1 {
 }
 
 main {
-  background-color: white;
+  background-color: var(--mainbgColor, transparent);
   /* background: url("./assets/bg-4.jpg"); */
   background-size: cover;
   background-position: center;
@@ -52,23 +64,22 @@ footer {
   padding: 10px 0;
 }
 
-/* Animation Styles */
-/* @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+@keyframes navbarAnimate {
+  0%,
+  100% {
+    --headeImg: none;
+    --mainbgColor: grey !important;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(0.3rem);
   }
-} */
-
-/* .content-section {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 0.5s;
-} */
+}
 
 .education {
   border-top: 2px solid #333;
